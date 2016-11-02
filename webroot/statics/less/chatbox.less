@@ -1,0 +1,115 @@
+.chatpanel{
+  background-color: #eeeeee;
+  .chatItem{
+    min-height: 50px;
+    padding: 10px 55px;
+    position: relative;
+  }
+  .chat_content {
+    background-color: #fff;
+    border: 1px solid #efefef;
+    border-radius: 5px;
+    padding: 12px;
+    display: inline-block;
+  }
+  .other{
+    & > img{
+      left: 5px;
+      position: absolute;
+      top: 10px;
+    }
+    .chat_content:before{
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid #fff;
+      border-top: 10px solid transparent;
+      content: " ";
+      left: 48px;
+      position: absolute;
+    }
+  }
+  .self{
+    & > img{
+      right: 5px;
+      position: absolute;
+      top: 10px;
+    }
+    .chat_content{
+      background-color: #9ee658;
+      float: right;
+    }
+    .chat_content:before{
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid #9ee658;
+      border-top: 10px solid transparent;
+      content: " ";
+      right: 48px;
+      position: absolute;
+    }
+  }
+}
+.offi_mess{//公众号发布主体内容
+  background-color: #fff;
+  margin: 20px auto;
+  width: 90%;
+  .mess_item{
+    padding: 10px;
+    border-bottom: 1px solid #EEEEEE;
+  }
+}
+.chatbox{
+  .circle {
+    border: 1px solid #aaa;
+    border-radius: 50%;
+    display: inline-block;
+    height: 30px;
+    line-height: 28px;
+    text-align: center;
+    width: 30px;
+    vertical-align: top;
+  }
+  .ime{
+    position: absolute;
+    left: 10px;
+    top: 7px;
+  }
+  .send_icon {
+    position: absolute;
+    right: 6px;
+    top: 7px;
+    width: 105px;
+    vertical-align: top;
+  }
+  .footer{
+    padding-left: 50px;
+    padding-right: 120px;
+    position: relative;
+
+  }
+}
+.chset_group {
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 5px 15px;
+  .portrait {
+    display: inline-block;
+    margin: 20px;
+    vertical-align: top;
+    .add_new {
+      border: 1px solid #ddd;
+      cursor: pointer;
+      font-size: 30px;
+      height: 40px;
+      line-height: 38px;
+      text-align: center;
+    }
+  }
+  .chset_item {
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 40px;
+    &:last-of-type{
+      border-bottom: none;
+    }
+  }
+}

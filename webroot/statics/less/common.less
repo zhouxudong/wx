@@ -1,0 +1,256 @@
+@import "../less/base";
+
+@theme_color: #45c017;
+//按钮
+.btn {
+  -moz-user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &.btn-default {
+    background-color: #fff;
+    border-color: #ccc;
+    color: #333;
+    &:hover,&:focus,&:active{
+      background-color: #e6e6e6;
+      border-color: #adadad;
+    }
+  }
+  &.btn-with-theme{
+    background-color: @theme_color;
+    border-color: @theme_color;
+    color: #fff;
+    &:hover,&:focus,&:active{
+      background-color: @theme_color - #111;
+      border-color: @theme_color - #111;
+    }
+  }
+  &.btn-primary {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    color: #fff;
+    &:hover,&:focus,&:active{
+      background-color: #337ab7 - #111;
+      border-color: #2e6da4 - #111;
+    }
+  }
+  &.btn-block {
+    display: block;
+    width: 100%;
+  }
+  &.btn-sm{padding:5px 10px;font-size:12px;line-height:1.5;border-radius:3px}
+  &.disabled{
+    background-color: #AAAAAA;
+    border-color: #AAAAAA;
+    &:hover,&:focus,&:active{
+      background-color:#AAAAAA;
+      border-color: #AAAAAA;
+    }
+
+  }
+}
+
+//复选框
+.check_sicon {
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  height: 20px;
+  vertical-align: middle;
+  width: 20px;
+  &.checked{
+    background-color: #469dfe;
+    &:after{
+      border-bottom: 2px solid #fff;
+      border-right: 2px solid #fff;
+      content: " ";
+      display: block;
+      height: 8px;
+      margin-left: 7px;
+      margin-top: 4px;
+      transform: rotate(45deg);
+      width: 4px;
+    }
+    &.hidden{width:8px;}
+  }
+}
+// 加减操作组合框
+.opera_box {
+  float: right;
+  font-size: 0;
+  margin-right: 20px;
+  *{font-size:14px;}
+  &.not_opt{
+    font-size: 13px;
+    .opera_item{display: none;}
+    .opera_num{border: none;}
+  }
+  .opera_item {
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    height: 26px;
+    line-height: 25px;
+    margin-left: -1px;
+    margin-right: -1px;
+    text-align: center;
+    vertical-align: top;
+    width: 26px;
+    &.reduce{
+      border-bottom-left-radius: 3px;
+      border-top-left-radius: 3px;
+    }
+    &.add{
+      border-bottom-right-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+  }
+  .opera_num {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    color: #333;
+    display: inline-block;
+    height: 26px;
+    text-align: center;
+    width: 30px;
+  }
+}
+//alert 弹出框
+.alert_wraper{
+  position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;overflow:hidden;-webkit-overflow-scrolling:touch;outline:0;
+  .modal{background-color:#000;left:0;position:absolute;right:0;top:0;opacity:.5;width:100%;height:100%}
+
+  .alert_content {
+    padding: 20px;
+    text-align: center;
+  }
+  .alert_box{
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 30px auto;
+    padding: 20px;
+    position: relative;
+    top: ~'calc(50% - 100px)';
+    width: 220px;
+  }
+}
+.form-control {
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  color: #555;
+  display: inline-block;
+  font-size: 14px;
+  height: 34px;
+  line-height: 1.42857;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  vertical-align: middle;
+  width: 100%;
+  &:focus{
+    border-color: @theme_color;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(234,67,59, 0.6);
+    outline: none;
+  }
+}
+//loading
+.loading_wraper{
+  position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;overflow:hidden;-webkit-overflow-scrolling:touch;outline:0;
+  .modal{background-color:#000;left:0;position:absolute;right:0;top:0;opacity:.5;width:100%;height:100%}
+  .loadingCont{
+    height: 100px;
+    left: ~'calc(50% - 50px)';
+    position: absolute;
+    top: ~'calc(50% - 50px)';
+    width: 100px;
+  }
+
+}
+//modal 模态框
+.modal_wraper{
+  position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;overflow:hidden;-webkit-overflow-scrolling:touch;outline:0;
+  .modal{background-color:#000;left:0;position:absolute;right:0;top:0;opacity:.5;width:100%;height:100%}
+  .modal_box{
+    background-color: #fff;
+    margin: 100px auto;
+    min-width: 220px;
+    position: relative;
+    padding-bottom: 20px;
+  }
+  .modal_header {
+    background-color: #059dd4;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
+  .modal_content {
+    padding: 15px 20px;
+  }
+
+}
+
+//进度条
+@keyframes progress-bar-stripes{
+  0%{background-position:0 0}
+  100%{background-position:40px 0}
+}
+.progress{
+  background-color:rgba(0, 0, 0, 0.15);
+  border-radius:5px;
+  box-shadow:0 0 2px rgba(0, 0, 0, 0.40) inset;
+  box-sizing: border-box;
+  height:15px;
+  overflow:hidden;
+  padding:2px;
+  width:100%;
+  margin-bottom: 5px;
+  .progress-bar{
+    animation:2s linear 0s normal none infinite running progress-bar-stripes;
+    background-color:#f8be2c;
+    background-image:linear-gradient(45deg, #ffab00 25%, transparent 25%, transparent 50%, #ffab00 50%, #ffab00 75%, transparent 75%, transparent);
+    background-size:20px 20px;
+    border-radius:5px;
+    height:100%
+  }
+}
+
+/*switch ui*/
+.switch_ui{
+  background-image: linear-gradient(to right, #45c017 50%, #fff 50%);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: 25px;
+  margin-top: 8px;
+  padding: 1px;
+  width: 60px;
+}
+
+.bcfgroup{
+  margin-top: 20px;
+  background-color: #FFF;
+  padding: 10px 15px;
+  .group_item {
+    border-bottom: 1px solid #eee;
+    line-height: 35px;
+    &:last-of-type{
+      border-bottom: none;
+    }
+  }
+}

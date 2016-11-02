@@ -1,0 +1,48 @@
+#circle_friend{height: 100%;}
+.circle_friend{
+  height: 100%;
+  .content{background-color:#fafafa}
+  .friend_bg {
+    position: relative;
+    margin-bottom: 15px;
+    .my_pt_wrap {
+      background-color: #fff;
+      border: 1px solid #eee;
+      bottom: -16px;
+      height: 80px;
+      position: absolute;
+      right: 40px;
+      width: 80px;
+    }
+  }
+  .friendGroup {
+    border-bottom: 1px solid #eee;
+    padding: 10px 10px 10px 65px;
+    position: relative;
+    .frd_portrait {
+      left: 10px;
+      position: absolute;
+      top: 13px;
+      width: 40px;
+      heigth: 40px;
+    }
+    .friend_cont{
+      & > p {
+        color: blue;
+        line-height: 25px;
+      }
+      .cont{
+        margin-bottom: 10px;
+      }
+      .cont_img{
+        width: 60%;
+        background-color:#FFF;
+        img{width: 100%}
+
+      }
+    }
+    .friend_foot {
+      color: #888;
+    }
+  }
+}

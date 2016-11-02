@@ -1,0 +1,39 @@
+
+#subPage> *{
+  background-color: #FEFEFE;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.viewItem{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  .header{
+    background-color: #383c3f;
+    color: #fff;
+    font-size: 16px;
+    padding: 14px 0 10px 10px;
+    height: 45px;
+    [class^="icon-"] {
+      font-size: 16px;
+      margin-right: 25px;
+      cursor: pointer;
+    }
+  }
+  .content{
+    height: 100%;
+    background-color: #eeeeee;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+  }
+  .footer{
+    height: 45px;
+    padding: 6px;
+  }
+}

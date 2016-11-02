@@ -1,0 +1,66 @@
+#login{
+  padding: 20px;
+  height: 100%;
+}
+.logo {
+  padding: 20px;
+  text-align: center;
+}
+
+.header(@bgcolor,@color,@linksize){
+  height: 45px;
+  line-height: 45px;
+  background-color: @bgcolor;
+  color: @color;
+  position: relative;
+  text-align: center;
+  .cancelLink{
+    position: absolute;
+    left: 0;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: @linksize;
+  }
+}
+#regist {
+  height: 100%;
+  .header{
+    .header(mediumblue,#FFF,13px)
+  }
+  .body{
+    padding: 20px;
+    .form-control:focus ~ p{
+      display: block;
+      line-height: 30px;
+      padding-left: 10px;
+    }
+  }
+}
+#repassword ,#reusername{
+  background-color: #EFEFEF;
+  height: 100%;
+  .header{
+    .header(#FFF,#333,30px)
+  }
+  .body{
+    padding: 20px;
+    background-color: #FFF;
+    margin-top: 15px;
+  }
+  .no-border-label{
+    border-bottom: 1px solid #eee;
+    display: inline-block;
+    line-height: 35px;
+    width: 100%;
+    label{
+      display: inline-block;
+      width: 60px;
+    }
+    .no-border{
+      border: medium none;
+      height: 30px;
+      padding-left: 15px;
+      width: ~'calc(100% - 60px)';
+    }
+  }
+}
