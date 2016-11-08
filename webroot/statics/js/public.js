@@ -104,7 +104,8 @@ var Z_Util = {
             dataType = option.dataType,
             success = option.success,
             error = option.error,
-            mode = dataType == "jsonp" ? "cors" :(dataType == "json" ? "same-origin" : "no-cors");
+            mode = dataType == "jsonp" ? "cors" :(dataType == "json" ? "same-origin" : "no-cors"),
+            data = option.data;
             //data = this.objToMap(data),
             //data = this.params(data);
 
