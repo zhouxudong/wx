@@ -98,7 +98,6 @@ var Z_Util = {
         $.ajax(option);
     },
     fetch: function(option) {
-        alert("fetch")
         //debugger;
         var url = option.url,
             type = option.type,
@@ -109,9 +108,6 @@ var Z_Util = {
             //data = this.objToMap(data),
             //data = this.params(data);
 
-        alert("fetch1")
-        if(type != "POST") url += "?" + data;
-        alert("fetch2")
         var myajax = {
             url: url,
             data: data,
