@@ -44,9 +44,6 @@ const Login = React.createClass({
             },
             success: function(data){
                 _this.context.router.push("/appview/home");
-            },
-            error: function(data){
-                alert(json.error_msg);
             }
 
         })
