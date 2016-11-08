@@ -14,12 +14,18 @@ router.get("/login", (req,res,next) => {
 
     var username = req.param("username");
     var password = req.param("password");
-    var sql = `select count(id) as count from users where username=${username} and password=${password}`;
+    var sql = `select count(id) as count from users where username = '${username}' and password= '${password}'`;
+    console.log(sql);
     conn(sql, rows => {
-        if(rows[0].count == 1)
+        console.log(rows[0].count);
+        if(rows[0].count > 0){
             req.session.login = 1;
             res.cookie('ZUCSS', '1', { domain:".renwoxing.com",expires: new Date(Date.now() + 900000),httpOnly: true});
             res.json({"status":"ok"});
+        }else{
+            res.json({"error_code":"123456",error_msg: "用户名跟密码不匹配"});
+        }
+
     })
 })
 
@@ -33,6 +39,7 @@ router.get("/register", (req,res,next) => {
         code = req.param("code"),
         sql = `insert into users (username,password,mobile) values ("${username}","${password}","${mobile}")`;
 
+    console.log("register sql: " +  sql);
     var regist = Promise.all([
         verifCode(mobile,code),
         verifUsrename(username)

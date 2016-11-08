@@ -6,10 +6,16 @@ var message = require("./message");         //消息
 var contact = require("./contact");         //联系人
 var subscriber = require("./subscriber"); //公众号、订阅号
 
+router.use("/", (req, res, next) => {
+
+    res.set("Cache-Control","no-cache");
+    next();
+})
 router.use("/user", user);
 router.use("/task", task);
 router.use("/message", message);
 router.use("/contact", contact);
 router.use("/subscriber", subscriber);
+
 
 module.exports = router;

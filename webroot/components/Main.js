@@ -57,13 +57,13 @@ const Main = React.createClass({
         var firstPath = Z_Util.getFirstPath(hashStr);
 
         if(pathname == "/") router.push("/passport/login");
-        else {
-            if(hashStr) showView(hashStr,firstPath);
-            else{
-                showView("/home","home");
-                router.push("/appview/home");
-            }
-        }
+        //else {
+        //    if(hashStr) showView(hashStr,firstPath);
+        //    else{
+        //        showView("/home","home");
+        //        router.push("/appview/home");
+        //    }
+        //}
     },
     render(){
         var { children } = this.props;

@@ -43,8 +43,10 @@ const Login = React.createClass({
             },
             success: res => {
                 res.json().then((json) => {
-                    if(json.status == "ok"){
+                    if(!json.error_code){
                         this.context.router.push("/appview/home");
+                    }else{
+                        alert(json.error_msg);
                     }
                 })
             }

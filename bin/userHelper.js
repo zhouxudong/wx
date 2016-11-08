@@ -14,7 +14,7 @@ var verifCode = function(mobile,code){
     })
 }
 var verifUsrename = function(username){
-    var sql = `select count(id) as num from users where username = ${username}`;
+    var sql = `select count(id) as num from users where username = '${username}'`;
     return new Promise((resolve, reject) => {
         conn(sql, rows => {
             if(rows[0].num == 0){
