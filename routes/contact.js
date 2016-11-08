@@ -9,14 +9,19 @@ var conn = require("../bin/db/DBHelper");
 router.get("/list", (req, res, next) => {
     var uid = req.param("uid");
     var sql = `select contacts from users where id = ${uid}`;
-    conn(sql, rows => {
-        var contacts = rows[0].contacts;
 
-        var constsSql = `select * from users where id in (${contacts})`;
-        conn(constsSql, rows => {
-            res.json({response_data: rows});
+    try{
+        conn(sql, rows => {
+            var contacts = rows[0].contacts;
+
+            var constsSql = `select * from users where id in (${contacts})`;
+            conn(constsSql, rows => {
+                res.json({response_data: rows});
+            })
         })
-    })
+    }catch (e){
+        res.json({error_code:123, error_msg: "获取联系人信息报错"})
+    }
 })
 
 //获取聊天内容
@@ -27,8 +32,12 @@ router.get("/chatcont", (req, res, next) => {
     var sql = `select m.*,u.portrait,u.name from user_message as m,users as u
                 where m.relevance = "${where}" and m.uid = u.id order by m.ctime`;
 
-    conn(sql, rows => {
-        res.json({response_data: rows});
-    })
+    try{
+        conn(sql, rows => {
+            res.json({response_data: rows});
+        })
+    }catch (e){
+        res.json({error_code: 123, error_msg: "获取聊天内容报错"})
+    }
 })
 module.exports = router;

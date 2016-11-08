@@ -1,6 +1,7 @@
 import React from 'react'
 import {showView} from '../../actions/home'
 import Z_API from "../../statics/js/api"
+import Z_Util from "../../statics/js/public"
 
 const PersonInfo = React.createClass({
     getInitialState(){
@@ -16,16 +17,18 @@ const PersonInfo = React.createClass({
         var {pid} = this.props;
         var url = Z_API.getUserInfo + "?id=" + pid;
 
-        fetch(url)
-            .then(res => res.json())
-            .then(json => {
-                if(json.response_data){
-                    var data = json.response_data;
-                    this.setState({
-                        user: data
-                    })
-                }
-            });
+        Z_Util.fetch({
+            url: Z_API.getUserInfo,
+            data: {
+                id: pid
+            },
+            success: function(data){
+                data = data.response_data;
+                this.setState({
+                    user: data
+                })
+            }.bind(this)
+        })
 
     },
     render(){

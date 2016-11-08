@@ -103,20 +103,12 @@ const Regist = React.createClass({
         Z_Util.fetch({
             url: Z_API.register,
             data: registerData,
-            success: function(res) {
-                res.json().then((json) => {
-                    if(json.response_data){
-                        alert("注册成功",() => {
-                            _this.context.router.push("/passport/login")
-                        });
-                    }else if(json.error_code){
-                        alert(json.msg);
-                    }
+            success: function(data) {
+                alert("注册成功",() => {
+                    _this.context.router.push("/passport/login")
                 })
-            }.bind(this),
-            error: function(e){
-
-            }
+            },
+            error: function(e){}
         })
 
     },
@@ -138,12 +130,9 @@ const Regist = React.createClass({
                 mobile: mobile.value
             },
             success: function(res){
-                res.json().then((json) => {
-                    if(!json.error_code){
-                        code.value = "123456"
-                    }
-                })
-            }
+                code.value = "123456"
+            },
+            error: function(){}
         })
         var num = 60;
         getCodeBtn.innerText = `${--num}秒后重新获取`;

@@ -68,9 +68,13 @@ router.get("/info", (req, res, next) => {
     var id = req.param("id");
     var sql = `select * from users where id = ${id}`;
 
-    conn(sql, rows => {
-        res.json({response_data: rows[0]});
-    })
+    try{
+        conn(sql, rows => {
+            res.json({response_data: rows[0]});
+        })
+    }catch (e){
+        res.json({error_code: 123, error_msg: "获取用户信息错误"})
+    }
 })
 
 //验证码
@@ -82,9 +86,14 @@ router.get("/code", (req,res,next) => {
         message = `来自自来水厂的消息：短信验证码为 ${code} ，10分钟有效，别告诉别人`,
         sql = `insert into code (mobile,code,message) values ("${mobile}","${code}","${message}")`;
     console.log(sql);
-    conn(sql, rows => {
-        res.json({response_data:true});
-    })
+    try{
+        conn(sql, rows => {
+            res.json({response_data:true});
+        })
+    }catch (e){
+        res.json({error_code: 123, error_msg: "获取验证码接口报错"})
+    }
+
 })
 
 module.exports = router;

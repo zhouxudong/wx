@@ -23,30 +23,33 @@ const ChatBox = React.createClass({
         this.apiPersonInfo(pid);
     },
     apiPersonInfo(pid){
-        var url = Z_API.getUserInfo + "?id=" + pid
 
-        fetch(url)
-        .then(res => res.json())
-        .then(json => {
-            if(json.response_data){
+        Z_Util.fetch({
+            url: Z_API.getUserInfo,
+            data: {
+                id: pid
+            },
+            success: function(data){
                 this.setState({
-                    uinfo: json.response_data
+                    uinfo: data.response_data
                 })
-            }
+            }.bind(this)
         })
     },
     apiChatCont(uid,pid){
-        var url = Z_API.getChatCont + "?uid=" + uid + "&pid="  + pid;
-        fetch(url)
-            .then(res => res.json())
-            .then(json => {
-                if(json.response_data){
-                    var data = json.response_data;
-                    this.setState({
-                        chats: data
-                    })
-                }
-            });
+
+        Z_Util.fetch({
+            url: Z_API.getChatCont,
+            data: {
+                uid: uid,
+                pid: pid
+            },
+            success: function(data){
+                this.setState({
+                    chats: data.response_data
+                })
+            }.bind(this)
+        })
     },
     render(){
 

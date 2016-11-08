@@ -5,9 +5,16 @@ export const apiMessageList = (uid) => {
     return (dispatch) => {
         var url = Z_API.getMessageList + "?uid=" + uid;
 
-        return fetch(url)
-            .then(res => res.json())
-            .then(json => dispatch(receiveMessageList(json.response_data)))
+        Z_Util.fetch({
+            url: Z_API.getMessageList,
+            data: {uid: uid},
+            success: function(data){
+                dispatch(receiveMessageList(data.response_data))
+            }
+        })
+        //return fetch(url)
+        //    .then(res => res.json())
+        //    .then(json => dispatch(receiveMessageList(json.response_data)))
     }
 }
 function receiveMessageList(messages){

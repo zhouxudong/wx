@@ -24,6 +24,7 @@ const Login = React.createClass({
     },
     handleLogin(){
         var {username,password} = this.refs;
+        var _this = this;
         var { alert } = this;
 
         if(username.value == ""){
@@ -41,15 +42,13 @@ const Login = React.createClass({
                 username: username.value,
                 password: password.value
             },
-            success: res => {
-                res.json().then((json) => {
-                    if(!json.error_code){
-                        this.context.router.push("/appview/home");
-                    }else{
-                        alert(json.error_msg);
-                    }
-                })
+            success: function(data){
+                _this.context.router.push("/appview/home");
+            },
+            error: function(data){
+                alert(json.error_msg);
             }
+
         })
     },
     alert(msg){

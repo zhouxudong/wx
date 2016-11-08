@@ -106,7 +106,25 @@ var Z_Util = {
             data = this.params(data);
 
         if(type != "POST") url += "?" + data;
+        var myajax = {
+            url: url,
+            success: function(data){
+                if(!data.error_code){
+                    success(data);
+                }else{
+                    myajax.error(data);
+                }
+            },
+            error: function(data){
+                if(data.error_code) alert(data.error_msg);
+                throw data;
+                error();
+            }
+        }
 
+        $.ajax(myajax);
+
+        /*
         fetch(url,{
             //method: type || "GET",
             //mode: mode,
@@ -116,6 +134,7 @@ var Z_Util = {
             //body: type == "POST" ? data : ""
         }).then( res => {success(res)})
         .catch(e => { if(error) error(e)})
+        */
 
     },
     objToMap: (obj) => {
