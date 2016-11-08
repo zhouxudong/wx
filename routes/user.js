@@ -20,7 +20,7 @@ router.get("/login", (req,res,next) => {
         console.log(rows[0].count);
         if(rows[0].count > 0){
             req.session.login = 1;
-            res.cookie('ZUCSS', 'on', {domain: ".zhouxd.com", expires: new Date(Date.now() + 2592000000)});
+            res.cookie('ZUCSS', 'on', {domain: "www.zhouxd.com", expires: new Date(Date.now() + 2592000000)});
             res.json({"status":"ok"});
         }else{
             res.json({"error_code":"123456",error_msg: "用户名跟密码不匹配"});
