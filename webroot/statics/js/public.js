@@ -100,8 +100,11 @@ var Z_Util = {
     fetch: function(option) {
         alert("fetch")
         //debugger;
-        var { url, type, dataType, data, success, error } = option,
-
+        var url = option.url,
+            type = option.type,
+            dataType = option.dataType,
+            success = option.success,
+            error = option.error,
             mode = dataType == "jsonp" ? "cors" :(dataType == "json" ? "same-origin" : "no-cors"),
             data = this.objToMap(data),
             data = this.params(data);
