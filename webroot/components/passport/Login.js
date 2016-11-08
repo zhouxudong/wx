@@ -44,19 +44,19 @@ const Login = React.createClass({
             },
             success: function(data){
                 console.log(data);
-                alert("success");
-                _this.context.router.push("/appview/home");
+                alert("success", () => {_this.context.router.push("/appview/home");});
             }
 
         })
     },
-    alert(msg){
+    alert(msg,callback){
         var { subpage } = this.refs;
-        render(<Alert msg={msg} alertClick={this.alertClick} />,subpage);
+        render(<Alert msg={msg} alertClick={ e => {this.alertClick(callback)}} />,subpage);
     },
-    alertClick(){
+    alertClick(callback){
         var { subpage } = this.refs;
         unmountComponentAtNode(subpage);
+        if(callback) callback();
     },
     contextTypes: {
         router: React.PropTypes.object
