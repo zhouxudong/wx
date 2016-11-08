@@ -43,6 +43,7 @@ const Login = React.createClass({
                 password: password.value
             },
             success: function(data){
+                console.log(data);
                 alert("success");
                 _this.context.router.push("/appview/home");
             }
