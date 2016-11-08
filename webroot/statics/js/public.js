@@ -105,15 +105,16 @@ var Z_Util = {
             dataType = option.dataType,
             success = option.success,
             error = option.error,
-            mode = dataType == "jsonp" ? "cors" :(dataType == "json" ? "same-origin" : "no-cors"),
-            data = this.objToMap(data),
-            data = this.params(data);
+            mode = dataType == "jsonp" ? "cors" :(dataType == "json" ? "same-origin" : "no-cors");
+            //data = this.objToMap(data),
+            //data = this.params(data);
 
         alert("fetch1")
         if(type != "POST") url += "?" + data;
         alert("fetch2")
         var myajax = {
             url: url,
+            data: data,
             success: function(data){
                 if(!data.error_code){
                     success(data);
